@@ -4,7 +4,7 @@
 #include <malloc.h>
 #include <string.h>
 
-/*�rbol binario*/
+/*ï¿½rbol binario*/
 typedef struct _nodo_{
   char info;
   struct _nodo_ *izq, *der;
@@ -55,13 +55,13 @@ int main(int argc, char *argv[]) {
     float valores[26];
     char infijo[50], *pc, posfijo[100];
 
-    printf("Ingrese la funci�n que desea evaluar (use parentesis para evitar confuciones): "); scanf("%s",&(*infijo));
+    printf("Ingrese la función que desea evaluar (use parentesis para evitar confuciones): "); scanf("%s",&(*infijo));
 
     in_a_pos(infijo,posfijo);
   
   a = exprecionAlArbol(posfijo);
   
-  printf("\nLa expresi�n ingresada es: \n");
+  printf("\nLa expresión ingresada es: \n");
   inorden(a);
   
   printf("\nLa derivada es:\n");
@@ -178,7 +178,7 @@ NODO* pop(PILA *ppila)
   ELPILA *pelp;
   NODO* miinfo;
 
-   /* en caso de que el valor a regresar fuera en uno de los par�metros
+   /* en caso de que el valor a regresar fuera en uno de los parï¿½metros
    if(ppila==NULL) return -2;
    if(*ppila ==NULL) return -1;
    */
@@ -212,7 +212,7 @@ NODO *creaNodo(char info)
 
 ARBOL exprecionAlArbol(char *expresion)
 {
-  /*Se va a meter la expresi�n a un �rbol
+  /*Se va a meter la expresiï¿½n a un ï¿½rbol
   */
   char *pc;
   NODO *segundo, *ret, *aux;
@@ -230,12 +230,12 @@ ARBOL exprecionAlArbol(char *expresion)
       case '*':
       case '^':
                 if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }
                 segundo = pop(&mipila);
                 if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }
                 aux = creaNodo(*pc);
@@ -247,14 +247,14 @@ ARBOL exprecionAlArbol(char *expresion)
       case 'C': 
       case 'L': 
                 if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }
                 aux = creaNodo(*pc);
                 aux->izq=NULL;
 				aux->der = pop(&mipila);
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 push(aux, &mipila);
@@ -263,13 +263,13 @@ ARBOL exprecionAlArbol(char *expresion)
   }
   
   if(pilavacia(mipila)){ 
-    printf("Error, pila no deber�a estar vac�a\n");
+    printf("Error, pila no deberï¿½a estar vacï¿½a\n");
     return NULL;
   }
   ret = pop(&mipila);
   
   if(!pilavacia(mipila)){ 
-    printf("Error, pila deber�a quedar vac�a\n");
+    printf("Error, pila deberï¿½a quedar vacï¿½a\n");
     return NULL;
   }
   
@@ -278,7 +278,7 @@ ARBOL exprecionAlArbol(char *expresion)
 
 ARBOL derivada(ARBOL a)
 {
-  /*Se va a meter la expresi�n a un �rbol
+  /*Se va a meter la expresiï¿½n a un ï¿½rbol
   */
   char *pc, r[20];
   NODO *segundo, *ret, *aux, *sub1, *sub2, *sub3;
@@ -296,12 +296,12 @@ ARBOL derivada(ARBOL a)
 	switch(a->info){
       case '+':
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }
                 segundo = pop(&mipila);
                 if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 aux = creaNodo(a->info);
@@ -311,12 +311,12 @@ ARBOL derivada(ARBOL a)
                 break;
       case '-':
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }
                 segundo = pop(&mipila);
                 if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 aux = creaNodo(a->info);
@@ -326,12 +326,12 @@ ARBOL derivada(ARBOL a)
                 break;
       case '*':
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }
                 segundo = pop(&mipila);
                 if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 aux = creaNodo('+');
@@ -348,12 +348,12 @@ ARBOL derivada(ARBOL a)
                 break;
       case '^':
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }
                 segundo = pop(&mipila);
                 if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 aux = creaNodo('*');
@@ -372,7 +372,7 @@ ARBOL derivada(ARBOL a)
                 break;
       case 'S':  
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 aux = creaNodo('*');
@@ -382,14 +382,14 @@ ARBOL derivada(ARBOL a)
                 sub1->der = a->der;
 			        	aux->der = derivada(a->der);
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 push(aux, &mipila);
                 break;
       case 'C': 
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 sub2 = creaNodo('-');
@@ -402,14 +402,14 @@ ARBOL derivada(ARBOL a)
                 sub1->der = a->der;
 			        	aux->der = derivada(a->der);
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 push(aux, &mipila);
                 break;
       case 'L': 
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 aux = creaNodo('*');
@@ -421,7 +421,7 @@ ARBOL derivada(ARBOL a)
                 (sub1->der)->izq = creaNodo('1');
 			        	aux->der = derivada(a->der);
                 /*if(pilavacia(mipila)){ 
-                  printf("Error, pila no deber�a estar vac�a\n");
+                  printf("Error, pila no deberï¿½a estar vacï¿½a\n");
                   return NULL;
                 }*/
                 push(aux, &mipila);
@@ -430,13 +430,13 @@ ARBOL derivada(ARBOL a)
   
   
   /*if(pilavacia(mipila)){ 
-    printf("Error, pila no deber�a estar vac�a\n");
+    printf("Error, pila no deberï¿½a estar vacï¿½a\n");
     return NULL;
   }
   ret = pop(&mipila);
   
   if(!pilavacia(mipila)){ 
-    printf("Error, pila deber�a quedar vac�a\n");
+    printf("Error, pila deberï¿½a quedar vacï¿½a\n");
     return NULL;
   }*/
   
